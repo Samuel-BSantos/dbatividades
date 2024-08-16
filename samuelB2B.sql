@@ -51,3 +51,25 @@ INSERT INTO aluno  values
   (7,"Katia Garcia", "Palmares", 962534122, 526.62, 9.7, '1991-10-19', 5),
   (8,"Júlio Mercedes", "Palmares", null, 837.73, 7.6, null, 3),
   (9,"Fátima Silva", "Jaboatão",   981722639, 549.91, 9.4, '1986-09-04', 5);
+  
+select nome from aluno where cidade_endereco = "Olinda";
+  
+select cidade_endereco from aluno where data_nascimento between '1990-01-01' and '1999-12-31';
+  
+select nome,nome_coordenador from curso where vagas between 10 and 25;
+  
+select nome from curso where nome_coordenador is null;
+  
+select nome from aluno where cod_curso =(select codigo from curso where nome_coordenador = "Francisco");
+  
+select cidade_endereco,nome from aluno where nome like '% v%';
+  
+select cidade_endereco from aluno where data_nascimento like '%-10-%';
+
+select cidade_endereco,nome from aluno where nome like 'P% %S';
+
+select cidade_endereco,nome from aluno where nome like 'm% %t%';
+
+-- 5.1 qual a area do curso redes de computadores?
+
+select descricao from area where codigo = (select cod_area from curso where nome = "Redes de Computadores");
